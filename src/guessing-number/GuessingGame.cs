@@ -19,8 +19,8 @@ public class GuessNumber
   public int userValue;
   public int randomValue;
 
-  public int maxAttempts;
-  public int currentAttempts;
+  public int maxAttempts = 5;
+  public int currentAttempts = 0;
 
   public int difficultyLevel;
 
@@ -35,8 +35,16 @@ public class GuessNumber
 
   //2 - Receba a entrada da pessoa usuária e converta para Int
   //5 - Adicione um limite de tentativas
+
   public string ChooseNumber(string userEntry)
   {
+    currentAttempts++;
+    if (currentAttempts > maxAttempts)
+    {
+      gameOver = true;
+      return "Você excedeu o número máximo de tentativas! Tente novamente.";
+    }
+
     bool canConvert = Int32.TryParse(userEntry, out userValue);
     if (!canConvert)
     {
