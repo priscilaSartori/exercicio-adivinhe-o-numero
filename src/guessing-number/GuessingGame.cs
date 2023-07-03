@@ -100,6 +100,11 @@ public class GuessNumber
   //7 - Adicione uma opção para reiniciar o jogo
   public void RestartGame()
   {
-    throw new NotImplementedException();
+    userValue = 0;
+    randomValue = 0;
+    currentAttempts = 0;
+    gameOver = false;
+    difficultyLevel = 1;
+    maxAttempts = 5;
   }
 }
